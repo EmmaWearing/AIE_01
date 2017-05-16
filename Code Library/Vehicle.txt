@@ -1,0 +1,54 @@
+//Vehicle Controller - Using Physics and Xbox Controller
+
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using XboxCtrlrInput;
+
+public class Vehicle : MonoBehaviour {
+
+	public XboxController controller;
+	public List<WheelCollider> wheelList;
+	public float enginePower=150.0f;
+	public float steer=0.0f;
+	public float maxSteer = 25.0f;
+
+	public int currentCheckPoint = 0;
+
+	public Vector3 centreOfMass = new Vector3( 0, -0.5f, 0.5f);
+
+
+	public void HitCheckPoint(int checkpointNumber) {
+		if (checkpointNumber == currentCheckPoint + 1) {
+			currentCheckPoint = checkpointNumber;
+		} else {
+			//Debug.Log ("Wrong Checkpoint for " + transform.name);
+			
+		}
+	}
+
+
+	// Use this for initialization
+	void Start () {
+		GetComponent<Rigidbody> ().centerOfMass = centreOfMass;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+		//First Section is declaring a counter varian;e int i = 0
+		//Second Section is the condition that has to be true to make the Loop happen i < wheelList.Count
+		//Third Section, The counter will go up by 1
+
+		for (int i = 0; i < wheelList.Count; i++) {
+			wheelList [i].motorTorque = enginePower * Time.deltaTime * 250.0f * XCI.GetAxis(XboxAxis.RightTrigger, controller);
+		}
+
+		wheelList [0].steerAngle = XCI.GetAxis(XboxAxis.LeftStickX,controller) * maxSteer;
+		wheelList [1].steerAngle = XCI.GetAxis(XboxAxis.LeftStickX,controller) * maxSteer;
+
+		
+	}
+}

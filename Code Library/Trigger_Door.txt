@@ -1,6 +1,10 @@
-﻿using System.Collections;
+//Trigger to open and close Sliding Door
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Door : MonoBehaviour {
 

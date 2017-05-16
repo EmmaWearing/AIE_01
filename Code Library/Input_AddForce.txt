@@ -1,0 +1,99 @@
+//Input and AddForce
+
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FirstScript : MonoBehaviour {
+
+	public float upwardsThrust = 40;
+	public float rotationalThrust = 5f;
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+		if (Input.GetKey (KeyCode.Space)) {
+			gameObject.GetComponent<Rigidbody> ().AddForce (transform.up * upwardsThrust);
+		}
+
+		if (Input.GetKey (KeyCode.W)) {
+			gameObject.GetComponent<Rigidbody> ().AddTorque (Vector3.left * rotationalThrust);
+		}
+
+		if (Input.GetKey (KeyCode.S)) {
+			gameObject.GetComponent<Rigidbody> ().AddTorque (Vector3.left * rotationalThrust);
+		}
+
+		if (Input.GetKey (KeyCode.A)) {
+			gameObject.GetComponent<Rigidbody> ().AddTorque (Vector3.forward * rotationalThrust);
+		}
+
+		if (Input.GetKey (KeyCode.D)) {
+			gameObject.GetComponent<Rigidbody> ().AddTorque (Vector3.forward * rotationalThrust);
+		}
+			
+
+	}
+}
+
+
+//		if (Input.GetKey (KeyCode.Space)) {
+//			gameObject.GetComponent<Rigidbody> ().AddForce (transform.up * 20);
+//		}
+
+//		if (Input.GetKey (KeyCode.W)) {
+//			gameObject.GetComponent<Rigidbody> ().AddForce (transform.forward * 5);
+//		}
+
+//		if (Input.GetKey (KeyCode.S)) {
+//			gameObject.GetComponent<Rigidbody> ().AddForce (transform.forward * -5);
+//		}
+
+//		if (Input.GetKey (KeyCode.A)) {
+//			gameObject.GetComponent<Rigidbody> ().AddForce (transform.right * -5);
+//		}
+
+//		if (Input.GetKey (KeyCode.D)) {
+//			gameObject.GetComponent<Rigidbody> ().AddForce (transform.right * 5);
+//		}
+
+
+//GetKey
+//constant when pressed
+
+//GetKeyDown
+//Single press to activate. Can be used with a loop to activate a sequence
+
+//turns off selected object
+//gameObject.SetActive (false);
+
+//scales up object by selected rate
+//transform.localScale = transform.localScale + (Vector3.one * 0.1f);
+
+//rotates on selected axis
+//transform.Rotate (new Vector3 (0, 1, 0));
+
+
+//moves forward rather than on the axis
+//transform.position = transform.position + (transform.forward * 0.1f);
+
+//Moves along selected axis
+//transform.position = transform.position + new Vector3 (0, 0, 0.1f);
+
+//Turns off gravity
+//gameObject.GetComponent<Rigidbody> ().useGravity = false;
+
+//spins object on spot
+//gameObject.GetComponent<Rigidbody> ().AddTorque (Vector3.down * 20);
+
+//moves up from location. Can be used to float across landscape whilst going up in a curve flow.
+//gameObject.GetComponent<Rigidbody> ().AddForce (transform.up * 20);
+
+//Uses physics to move object up
+//gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.up * 20);

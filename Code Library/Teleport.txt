@@ -1,0 +1,29 @@
+public class Teleport : MonoBehaviour {
+
+		public Transform Destination;    
+		public GameObject teleportPad;
+
+
+		// Use this for initialization
+		void Start () {
+			// As needed
+		}
+
+		// Update is called once per frame
+		void Update () {
+			// As needed
+		}
+
+	public void OnTriggerEnter(Collider other)
+		{
+			// If the tag of the colliding object is allowed to teleport
+		if (other.tag == "Player") {
+				// Update other objects position and rotation
+				other.transform.position = Destination.transform.position;
+				other.transform.rotation = Destination.transform.rotation;
+			}
+		}
+	}
+	
+
+//place script on gaemobject intended to be teleporter not on player

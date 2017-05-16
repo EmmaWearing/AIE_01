@@ -1,0 +1,132 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour {
+
+	public float speed = 20;
+	public float rollWeight = 2;
+	public float pitchWeight = 2;
+
+	public float thrust = 5;
+
+	public float maxThrust = 100;
+	public float minThrust = 10;
+
+	public Quaternion startingRotation;
+	public Vector3 startingPosition;
+
+	public GameObject Spaceship;
+
+	public KeyCode fireKey = KeyCode.Q;
+
+
+	//Bullet Stuff
+	public GameObject bulletPrefab;
+	public float bulletSpeed = 60;
+	public Transform bulletSpawnPoint;
+
+	//Health
+	public int health = 100;
+
+	public void TakeDamage(int damageToTake) {
+		health -= damageToTake;
+	}
+
+	void Start () {
+		startingRotation = transform.rotation;
+		startingPosition = transform.position;
+	}
+
+
+
+	void Update () {
+
+
+		if (health <= 0) {
+			//this exits the function and does not run anything after it.
+			ResetPlayer();
+		}
+
+		if (Input.GetKeyDown (fireKey)) {
+			GameObject GO = Instantiate (bulletPrefab, bulletSpawnPoint.position, Quaternion.identity) as GameObject;
+			GO.GetComponent<Rigidbody> ().AddForce (Spaceship.transform.forward * bulletSpeed, ForceMode.Impulse);
+		}
+
+
+		MovePlayer ();
+		CheckPlayerPosition (transform.position.y, -50f, 500f);
+		CheckPlayerPosition (transform.position.x, -50f, 500f);
+		CheckPlayerPosition (transform.position.z, -50f, 500f);
+	}
+
+
+
+	private void MovePlayer() {
+		
+		//Unity in-built Input system great but not for controllers.
+		float roll = rollWeight * -Input.GetAxis ("Horizontal");
+		float pitch = pitchWeight * -Input.GetAxis ("Vertical");
+		Vector3 Rotation = new Vector3 (pitch, 0, roll);
+
+		transform.Rotate (Rotation);
+
+		if (Input.GetButton("Jump")) {
+			speed = speed + thrust;
+
+			if (speed > maxThrust) {
+				speed = maxThrust;
+
+			} else {
+				speed = speed - thrust;
+			}
+		}
+
+		transform.position += transform.forward * speed * Time.deltaTime;
+	
+	}
+
+
+
+	//This function checks the update function, where we put the values and checks them against the criteria we provide in this function.
+	private void CheckPlayerPosition( float positionToCheck, float minValue, float maxValue ) {
+
+		if (positionToCheck < minValue || positionToCheck > maxValue) {
+
+
+//		//If the player flies too high or low they will reset
+//		if (transform.position.y < -50 || transform.position.y > 300) {
+//			ResetPlayer ();
+//		}
+//
+//		if (transform.position.x < -300 || transform.position.x > 300) {
+//			ResetPlayer ();
+//		}
+//
+//		if (transform.position.z < -300 || transform.position.z > 300) {
+//			ResetPlayer ();
+		}
+
+	}
+
+
+
+	private void ResetPlayer() {
+	
+		transform.position = startingPosition;
+		transform.rotation = startingRotation;
+
+	}
+
+
+	void OnCollisionEnter() {
+		ResetPlayer ();
+
+		//This code resets the player speed and angular speed
+		GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
+		GetComponent<Rigidbody> ().velocity = Vector3.zero;
+	}
+
+
+
+}
