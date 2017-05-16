@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XboxCtrlrInput;
 
 public class Player : MonoBehaviour {
+
+	Rigidbody rb;
 
 	public float movementSpeed = 0.1f;
 	public float rotateSpeed = 1;
 
+	public XboxController controller;
 	public KeyCode forwardsKey = KeyCode.W;
 	public KeyCode backwardsKey = KeyCode.S;
 	public KeyCode rotateLeftKey = KeyCode.A;
@@ -19,6 +23,8 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		rb = GetComponent<Rigidbody> ();
+
 		hasKey = false;
 	}
 	
@@ -26,6 +32,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 		
 		MovePlayer ();
+
 
 //		Vector3 moveDir = Vector3.zero;
 //			moveDir.x = Input.GetAxis("Horizontal"); 
@@ -39,21 +46,28 @@ public class Player : MonoBehaviour {
 
 	public void MovePlayer() {
 
-		if (Input.GetKey (forwardsKey)) {
-			transform.position += transform.forward * movementSpeed;
-		}
 
-		if (Input.GetKey (backwardsKey)) {
-			transform.position += transform.forward * -movementSpeed;
-		}
 
-		if (Input.GetKey (rotateRightKey)) {
-			transform.Rotate (Vector3.up * rotateSpeed);
-		}
+		float moveForward = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickY, controller);
+		float moveRight = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
+		Vector3 movement = new Vector3 (moveRight, 0, moveForward);
 
-		if (Input.GetKey (rotateLeftKey)) {
-			transform.Rotate (Vector3.up * -rotateSpeed);
-		}
+		rb.AddForce (movement * movementSpeed);
+//		if (Input.GetKey (KeyCode.S)) {
+//			transform.position += transform.forward * movementSpeed;
+//		}
+//
+//		if (Input.GetKey (KeyCode.W)) {
+//			transform.position += transform.forward * -movementSpeed;
+//		}
+//
+//		if (Input.GetKey (rotateRightKey)) {
+//			transform.Rotate (Vector3.up * rotateSpeed);
+//		}
+//
+//		if (Input.GetKey (rotateLeftKey)) {
+//			transform.Rotate (Vector3.up * -rotateSpeed);
+//		}
 	}
 
 
