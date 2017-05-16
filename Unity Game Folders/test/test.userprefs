@@ -1,11 +1,13 @@
-﻿<Properties StartupItem="test.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\OpenDoor.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpeedModifySecond.cs">
     <Files>
-      <File FileName="Assets\Scripts\Door.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\OpenDoor.cs" Line="25" Column="4" />
-      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Key.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FollowCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="73" Column="1" />
+      <File FileName="Assets\Scripts\Key.cs" Line="25" Column="4" />
+      <File FileName="Assets\Scripts\OpenDoor.cs" Line="44" Column="2" />
+      <File FileName="Assets\Scripts\SpeedModifyFast.cs" Line="25" Column="4" />
+      <File FileName="Assets\Scripts\SpeedModifySecond.cs" Line="31" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

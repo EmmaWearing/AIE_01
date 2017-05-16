@@ -9,8 +9,8 @@ public class Player : MonoBehaviour {
 
 	public KeyCode forwardsKey = KeyCode.W;
 	public KeyCode backwardsKey = KeyCode.S;
-	public KeyCode leftKey = KeyCode.A;
-	public KeyCode rightKey = KeyCode.D;
+	public KeyCode rotateLeftKey = KeyCode.A;
+	public KeyCode rotateRightKey = KeyCode.D;
 
 
 	public GameObject key;
@@ -25,6 +25,20 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		MovePlayer ();
+
+//		Vector3 moveDir = Vector3.zero;
+//			moveDir.x = Input.GetAxis("Horizontal"); 
+//			transform.position += moveDir * movementSpeed;
+	}
+
+	public void GetKey(){
+		Debug.Log ("check");
+		hasKey = true;
+	}
+
+	public void MovePlayer() {
+
 		if (Input.GetKey (forwardsKey)) {
 			transform.position += transform.forward * movementSpeed;
 		}
@@ -33,22 +47,26 @@ public class Player : MonoBehaviour {
 			transform.position += transform.forward * -movementSpeed;
 		}
 
-		Vector3 moveDir = Vector3.zero;
-			moveDir.x = Input.GetAxis("Horizontal"); 
-			transform.position += moveDir * movementSpeed;
-	}
-
-	public void GetKey(){
-		hasKey = true;
-	}
-
-	void OnTriggerEnter(Collider other){
-		if (other.tag == "Player" && Input.GetKey (KeyCode.E)) {
-			//other.GetComponent<Player> ().GetKey ();
-			hasKey = true;
-
-			Destroy (key);
+		if (Input.GetKey (rotateRightKey)) {
+			transform.Rotate (Vector3.up * rotateSpeed);
 		}
+
+		if (Input.GetKey (rotateLeftKey)) {
+			transform.Rotate (Vector3.up * -rotateSpeed);
+		}
+	}
+
+
+	public void MovementSecond() {
+
+		movementSpeed = movementSpeed * 1.7f;
+
+	}
+
+	public void MovementFast() {
+
+		movementSpeed = movementSpeed * 2.2f;
+
 	}
 
 }

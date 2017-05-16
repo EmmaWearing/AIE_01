@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour {
 
-	public Transform doorTransform;
+	//public Transform doorTransform;
 	public float slideOpen = -3f;
 	public float speed = 3f;
 	public bool isClosed;
 	public Vector3 closedPosition;
+	public Vector3 endpos;
 
-	public bool hasKey;
+	public GameObject player;
 
-
+	bool hasKey;
 	// Use this for initialization
 	void Start () {
 		isClosed = true;
@@ -23,18 +24,19 @@ public class OpenDoor : MonoBehaviour {
 	void Update () {
 
 		if (isClosed == false) {
-			Vector3 endpos = closedPosition + new Vector3(slideOpen, 0f, 0f);
-			}
+				transform.position = closedPosition + new Vector3(slideOpen, 0f, 0f);
 		}
+	}
 
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Player" && hasKey == true) {
+		
+		if (other.tag == "Player" && player.GetComponent<Player>().hasKey == true) {
 			isClosed = false;
 		}
 	}
 
-		void OntriggerExit(Collider other) {
+	void OntriggerExit(Collider other) {
 		Vector3 endpos = closedPosition + new Vector3 (-slideOpen, 0f, 0f);
 	}
 

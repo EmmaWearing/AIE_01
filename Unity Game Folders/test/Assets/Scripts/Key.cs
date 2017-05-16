@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class Key : MonoBehaviour {
 
-	public bool hasKey;
+	public GameObject player;
 
-	void Start() {
-	
-		hasKey = false
+	// Use this for initialization
+	void Start () {
+		
 	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+	void OnTriggerStay(Collider other){
+		if (other.tag == "Player" && Input.GetKey (KeyCode.E)) {
+		//if (other.tag == "Player") {
 
-	void OnTriggerEnter(Collider other){
-		if (other.tag == "Player") {
 			//other.GetComponent<Player> ().GetKey ();
-			hasKey = true
-			
-			Destroy (gameObject);
+			//hasKey = true;
+			player.GetComponent<Player>().GetKey();
+			Destroy (gameObject.transform.parent.gameObject);
 		}
 	}
 }
