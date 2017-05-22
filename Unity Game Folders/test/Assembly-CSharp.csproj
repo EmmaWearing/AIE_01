@@ -46,13 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput.cs" />
-     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
-     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
-     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
-     <Compile Include="Assets\3rd Party\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
-     <Compile Include="Assets\3rd Party\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
-     <Compile Include="Assets\3rd Party\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
+     <Compile Include="Assets\3rd Party\XInputDotNet\Examples\XInputTestCS.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\Key.cs" />
@@ -61,9 +55,14 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\SpeedModifyFast.cs" />
      <Compile Include="Assets\Scripts\SpeedModifySecond.cs" />
-     <None Include="Assets\3rd Party\delete me.txt" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput.cs" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
+     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
+     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
+     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
      <None Include="Assets\Models\delete me.txt" />
-     <None Include="Assets\3rd Party\XInput\XInputDotNet\MITLicense.txt" />
+     <None Include="Assets\3rd Party\XInputDotNet\MITLicense.txt" />
      <None Include="Assets\Prefabs\delete me.txt" />
      <None Include="Assets\Materials\delete me.txt" />
      <None Include="Assets\Textures\delete me.txt" />
@@ -86,7 +85,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/clowd/Desktop/AIE_Dip/SVN Checkout/trunk/Unity Game Folders/test/Assets/3rd Party/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>C:/Users/clowd/Desktop/AIE_Dip/SVN Checkout/trunk/Unity Game Folders/test/Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

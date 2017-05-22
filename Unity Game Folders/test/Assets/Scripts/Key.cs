@@ -16,7 +16,7 @@ public class Key : MonoBehaviour {
 		
 	}
 	void OnTriggerStay(Collider other){
-		if (other.tag == "Player" && Input.GetKey (KeyCode.E)) {
+		if (other.tag == "Player" && XboxCtrlrInput.XCI.GetButton(XboxCtrlrInput.XboxButton.A)) {
 		//if (other.tag == "Player") {
 
 			//other.GetComponent<Player> ().GetKey ();

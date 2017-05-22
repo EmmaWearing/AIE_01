@@ -11,10 +11,10 @@ public class Player : MonoBehaviour {
 	public float rotateSpeed = 1;
 
 	public XboxController controller;
-	public KeyCode forwardsKey = KeyCode.W;
-	public KeyCode backwardsKey = KeyCode.S;
-	public KeyCode rotateLeftKey = KeyCode.A;
-	public KeyCode rotateRightKey = KeyCode.D;
+//	public KeyCode forwardsKey = KeyCode.W;
+//	public KeyCode backwardsKey = KeyCode.S;
+//	public KeyCode rotateLeftKey = KeyCode.A;
+//	public KeyCode rotateRightKey = KeyCode.D;
 
 
 	public GameObject key;
@@ -45,7 +45,6 @@ public class Player : MonoBehaviour {
 	}
 
 	public void MovePlayer() {
-
 
 
 		float moveForward = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickY, controller);

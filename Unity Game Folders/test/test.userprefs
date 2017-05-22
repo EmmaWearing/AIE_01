@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\OpenDoor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Key.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player.cs" Line="13" Column="21" />
-      <File FileName="Assets\Scripts\OpenDoor.cs" Line="40" Column="1" />
+      <File FileName="Assets\Scripts\Key.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\Player.cs" Line="46" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
