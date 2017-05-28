@@ -12,6 +12,8 @@ public class FollowCamera : MonoBehaviour {
 	public bool followBehind = true;
 	public float rotationDamping = 10.0f;
 
+	public float rotateSpeed;
+
 	void FixedUpdate () {
 		Vector3 wantedPosition;
 		if(followBehind)
@@ -26,5 +28,9 @@ public class FollowCamera : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp (transform.rotation, wantedRotation, Time.deltaTime * rotationDamping);
 		}
 		else transform.LookAt (target, target.up);
+	}
+
+	void Look (){
+
 	}
 }
