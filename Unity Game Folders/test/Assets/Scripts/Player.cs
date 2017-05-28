@@ -4,82 +4,128 @@ using UnityEngine;
 using XboxCtrlrInput;
 
 public class Player : MonoBehaviour {
-
+//Rigidbody
 	Rigidbody rb;
-
-	public float movementSpeed = 0.1f;
+//Speed
+	public float movementSpeed = 20f;
 	public float rotateSpeed = 1;
-
+	public float inAirSpeed;
+//KnockBack
+	public float knockBackDistance;
+	public float knockBackSpeed;
+//Player Spawn
+	public Transform playerSpawn;
+	public Transform player;
+//Controller
 	public XboxController controller;
-//	public KeyCode forwardsKey = KeyCode.W;
-//	public KeyCode backwardsKey = KeyCode.S;
-//	public KeyCode rotateLeftKey = KeyCode.A;
-//	public KeyCode rotateRightKey = KeyCode.D;
+//Jump
+	public float jumpHeight;
+	public bool canJump;
+	public bool isGrounded;
+	public bool isFalling;
+//Fish Setup
+	public GameObject fishPrefab;
+	public float fishSpeed = 20;
+	public Transform fishSpawnPoint;
+	public GameObject fishGun;
+//Shoot the Fish
+	KeyCode fireKey = KeyCode.Space;
+//Health
+	public int health = 100;
 
 
-	public GameObject key;
-	public bool hasKey;
-
-	// Use this for initialization
 	void Start () {
-
 		rb = GetComponent<Rigidbody> ();
-
-		hasKey = false;
+		canJump = true;
+		isGrounded = true;
 	}
-	
-	// Update is called once per frame
+
+
+// Update is called once per frame
 	void Update () {
-		
+//Move
 		MovePlayer ();
+//Health
+		//if the player health drops equal to or below 0 then:
+		//Get the spawn object that has the spawn script, grab the spawn script off it and respawn the player at their spawn position.
+		if (health <= 0) {
+			Debug.Log ("respawn");
+			Respawn ();
+		}
+//Shoot
+		if (Input.GetKeyDown (fireKey)) {
+			GameObject GO = Instantiate (fishPrefab, fishSpawnPoint.position, Quaternion.identity) as GameObject;
+			GO.GetComponent<Rigidbody> ().AddForce (fishGun.transform.forward * fishSpeed, ForceMode.Impulse);
+		}
 
-
-//		Vector3 moveDir = Vector3.zero;
-//			moveDir.x = Input.GetAxis("Horizontal"); 
-//			transform.position += moveDir * movementSpeed;
 	}
 
-	public void GetKey(){
-		Debug.Log ("check");
-		hasKey = true;
-	}
 
 	public void MovePlayer() {
-
-
+//Move
+//		Debug.Log ("I'm moving...");
 		float moveForward = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickY, controller);
 		float moveRight = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
 		Vector3 movement = new Vector3 (moveRight, 0, moveForward);
 
 		rb.AddForce (movement * movementSpeed);
-//		if (Input.GetKey (KeyCode.S)) {
-//			transform.position += transform.forward * movementSpeed;
-//		}
-//
-//		if (Input.GetKey (KeyCode.W)) {
-//			transform.position += transform.forward * -movementSpeed;
-//		}
-//
-//		if (Input.GetKey (rotateRightKey)) {
-//			transform.Rotate (Vector3.up * rotateSpeed);
-//		}
-//
-//		if (Input.GetKey (rotateLeftKey)) {
-//			transform.Rotate (Vector3.up * -rotateSpeed);
-//		}
+
+
+// Jump
+		if (canJump == true && isGrounded == true && XboxCtrlrInput.XCI.GetButton (XboxCtrlrInput.XboxButton.A)) {
+			rb.AddForce (0, jumpHeight, 0);
+//			rb.AddForce = jump;
+
+//			Debug.Log ("I'm jumping...");
+			movementSpeed = inAirSpeed;
+			isGrounded = false;
+			canJump = false;
+			isFalling = true;
+		}
 	}
 
-
-	public void MovementSecond() {
-
-		movementSpeed = movementSpeed * 1.7f;
-
-	}
 
 	public void MovementFast() {
-
-		movementSpeed = movementSpeed * 2.2f;
-
+		movementSpeed = movementSpeed * 2f;
 	}
+
+
+	void OnCollisionStay(Collision other) {
+
+		if (other.collider.CompareTag("Floor")) {
+			movementSpeed = movementSpeed;
+			isGrounded = true;
+			canJump = true;
+			isFalling = false;
+		}
+
+		if (other.collider.CompareTag ("Wall")) {
+			isGrounded = false;
+			canJump = false;
+			isFalling = false;
+		}
+	}
+
+
+	void OnCollisionEnter(Collision other) {
+		if (other.collider.CompareTag("Player")) {
+			rb.AddForce (0f, jumpHeight * knockBackSpeed * 0.05f, -knockBackDistance * knockBackSpeed);
+		}
+		if (other.collider.CompareTag("Player2")) {
+			rb.AddForce (0f, jumpHeight * knockBackSpeed * 0.05f, -knockBackDistance * knockBackSpeed);
+		}
+	}
+
+
+	public void TakeDamage (int damage) {
+		Debug.Log ("hit");
+		health -= damage;
+	}
+
+	void Respawn() {
+		Debug.Log ("..........");
+		player.transform.position = playerSpawn.transform.position;
+	}
+
 
 }

@@ -46,25 +46,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\3rd Party\Scripts\DoorExample.cs" />
+     <Compile Include="Assets\3rd Party\Scripts\FollowCamera.cs" />
+     <Compile Include="Assets\3rd Party\Scripts\TankController.cs" />
+     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput.cs" />
+     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
+     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
+     <Compile Include="Assets\3rd Party\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
+     <Compile Include="Assets\3rd Party\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
+     <Compile Include="Assets\3rd Party\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
      <Compile Include="Assets\3rd Party\XInputDotNet\Examples\XInputTestCS.cs" />
-     <Compile Include="Assets\Scripts\Door.cs" />
-     <Compile Include="Assets\Scripts\FollowCamera.cs" />
-     <Compile Include="Assets\Scripts\Key.cs" />
-     <Compile Include="Assets\Scripts\Old_Example\TankController.cs" />
-     <Compile Include="Assets\Scripts\OpenDoor.cs" />
+     <Compile Include="Assets\Scripts\Fish.cs" />
+     <Compile Include="Assets\Scripts\Old_Example\TestKey.cs" />
+     <Compile Include="Assets\Scripts\Old_Example\TestOpenDoor.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerSpawn.cs" />
      <Compile Include="Assets\Scripts\SpeedModifyFast.cs" />
-     <Compile Include="Assets\Scripts\SpeedModifySecond.cs" />
-     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput.cs" />
-     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
-     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
-     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
-     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
-     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
-     <None Include="Assets\Models\delete me.txt" />
+     <Compile Include="Assets\Scripts\UI &amp; Score\Player1Score.cs" />
+     <Compile Include="Assets\Scripts\UI &amp; Score\Player2Score.cs" />
+     <Compile Include="Assets\Scripts\UI &amp; Score\ScoreZone.cs" />
+     <Compile Include="Assets\Scripts\UI &amp; Score\Timer.cs" />
      <None Include="Assets\3rd Party\XInputDotNet\MITLicense.txt" />
-     <None Include="Assets\Prefabs\delete me.txt" />
-     <None Include="Assets\Materials\delete me.txt" />
      <None Include="Assets\Textures\delete me.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -85,7 +87,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/clowd/Desktop/AIE_Dip/SVN Checkout/trunk/Unity Game Folders/test/Assets/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>C:/Users/clowd/Desktop/AIE_Dip/SVN Checkout/trunk/Unity Game Folders/test/Assets/3rd Party/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
