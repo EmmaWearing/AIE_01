@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-	public float myTimer = 90;
+	public float roundTimer = 90;
 	public Text timerText;
 
 	// Use this for initialization
@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		myTimer -= Time.deltaTime;
-		timerText.text = myTimer.ToString("f0");
+		roundTimer -= Time.deltaTime;
+		timerText.text = roundTimer.ToString("f0");
 	}
 }

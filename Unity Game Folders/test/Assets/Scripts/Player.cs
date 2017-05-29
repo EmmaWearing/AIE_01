@@ -4,12 +4,14 @@ using UnityEngine;
 using XboxCtrlrInput;
 
 public class Player : MonoBehaviour {
+	
 //Rigidbody
 	Rigidbody rb;
 //Speed
 	public float movementSpeed = 20f;
 	public float rotateSpeed = 1;
 	public float inAirSpeed;
+	public float increasedSpeed;
 //KnockBack
 	public float knockBackDistance;
 	public float knockBackSpeed;
@@ -25,11 +27,12 @@ public class Player : MonoBehaviour {
 	public bool isFalling;
 //Fish Setup
 	public GameObject fishPrefab;
-	public float fishSpeed = 20;
+	public float fishSpeed = 100;
 	public Transform fishSpawnPoint;
 	public GameObject fishGun;
 //Shoot the Fish
-	KeyCode fireKey = KeyCode.Space;
+	public bool canFire = true;
+	public float shotSpeed = 0.2f;
 //Health
 	public int health = 100;
 
@@ -53,26 +56,42 @@ public class Player : MonoBehaviour {
 			Respawn ();
 		}
 //Shoot
-		if (Input.GetKeyDown (fireKey)) {
+		if ( XboxCtrlrInput.XCI.GetAxis(XboxAxis.RightTrigger,controller) > 0 && canFire == true) {
 			GameObject GO = Instantiate (fishPrefab, fishSpawnPoint.position, Quaternion.identity) as GameObject;
 			GO.GetComponent<Rigidbody> ().AddForce (fishGun.transform.forward * fishSpeed, ForceMode.Impulse);
+			canFire = false;
+			Invoke ("ResetShooting", shotSpeed);
 		}
 
 	}
 
+	private void ResetShooting () {
+		canFire = true;
+	}
 
 	public void MovePlayer() {
 //Move
 //		Debug.Log ("I'm moving...");
-		float moveForward = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickY, controller);
-		float moveRight = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
-		Vector3 movement = new Vector3 (moveRight, 0, moveForward);
+		//float moveForward = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickY, controller);
+		//float moveRight = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
 
+
+		Vector3 moveForwardT = transform.forward * XboxCtrlrInput.XCI.GetAxis (XboxAxis.LeftStickY, controller);
+		Vector3 moveRightT = transform.right * XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
+		Vector3 movement = moveRightT + moveForwardT;
+
+
+		//Vector3 movement = new Vector3 (moveRight, 0, moveForward);
 		rb.AddForce (movement * movementSpeed);
+
+//Rotate
+		float rotatePlayer = XboxCtrlrInput.XCI.GetAxis(XboxAxis.RightStickX, controller);
+		player.transform.Rotate (Vector3.up * rotateSpeed * rotatePlayer);
+	
 
 
 // Jump
-		if (canJump == true && isGrounded == true && XboxCtrlrInput.XCI.GetButton (XboxCtrlrInput.XboxButton.A)) {
+		if (canJump == true && isGrounded == true && XboxCtrlrInput.XCI.GetButton (XboxCtrlrInput.XboxButton.A, controller)) {
 			rb.AddForce (0, jumpHeight, 0);
 //			rb.AddForce = jump;
 
@@ -84,21 +103,21 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-
+//Movement Speed
 	public void MovementFast() {
-		movementSpeed = movementSpeed * 2f;
+		movementSpeed = increasedSpeed;
 	}
 
-
+//Checking for Floor to Jump on
 	void OnCollisionStay(Collision other) {
 
 		if (other.collider.CompareTag("Floor")) {
-			movementSpeed = movementSpeed;
 			isGrounded = true;
 			canJump = true;
 			isFalling = false;
 		}
 
+//can't jump if touching the walls
 		if (other.collider.CompareTag ("Wall")) {
 			isGrounded = false;
 			canJump = false;
@@ -107,6 +126,7 @@ public class Player : MonoBehaviour {
 	}
 
 
+//Collision with the other player
 	void OnCollisionEnter(Collision other) {
 		if (other.collider.CompareTag("Player")) {
 			rb.AddForce (0f, jumpHeight * knockBackSpeed * 0.05f, -knockBackDistance * knockBackSpeed);
@@ -117,14 +137,18 @@ public class Player : MonoBehaviour {
 	}
 
 
+//Damage
 	public void TakeDamage (int damage) {
 		Debug.Log ("hit");
 		health -= damage;
 	}
 
+//Respawn
 	void Respawn() {
 		Debug.Log ("..........");
+		health = 100;
 		player.transform.position = playerSpawn.transform.position;
+		movementSpeed = movementSpeed;
 	}
 
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpeedModifyFast: MonoBehaviour {
 
 	public GameObject player;
+	public GameObject player2;
 
 	// Use this for initialization
 	void Start () {
@@ -19,13 +20,13 @@ public class SpeedModifyFast: MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if (other.tag == "Player") {
-			player.GetComponent<Player>().MovementFast();
-
-
-
-			Destroy (gameObject.transform.parent.gameObject);
-	
-	}
+			player.GetComponent<Player>().MovementFast ();
+			Destroy (this.gameObject.transform.parent.gameObject);
+		}
+		if (other.tag == "Player2") {
+			player2.GetComponent<Player> ().MovementFast ();
+			Destroy (this.gameObject.transform.parent.gameObject);
+		}
 
 	}
 }

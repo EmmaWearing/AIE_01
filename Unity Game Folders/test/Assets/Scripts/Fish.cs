@@ -21,7 +21,14 @@ public class Fish : MonoBehaviour {
 			other.GetComponent<Player> ().TakeDamage (damage);
 		}
 
-		Destroy (this.gameObject);
+		if (other.tag == "Obstacle") {
+			Destroy (this.gameObject);
+		}
+
+		if (other.tag == "Wall") {
+			Destroy (this.gameObject);
+		}
+
 
 	}
 }
