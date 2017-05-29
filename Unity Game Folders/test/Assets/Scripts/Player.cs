@@ -80,7 +80,6 @@ public class Player : MonoBehaviour {
 		Vector3 moveRightT = transform.right * XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
 		Vector3 movement = moveRightT + moveForwardT;
 
-
 		//Vector3 movement = new Vector3 (moveRight, 0, moveForward);
 		rb.AddForce (movement * movementSpeed);
 
@@ -139,7 +138,7 @@ public class Player : MonoBehaviour {
 
 //Damage
 	public void TakeDamage (int damage) {
-		Debug.Log ("hit");
+//		Debug.Log ("hit");
 		health -= damage;
 	}
 

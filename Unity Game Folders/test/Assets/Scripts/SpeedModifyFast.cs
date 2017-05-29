@@ -7,6 +7,8 @@ public class SpeedModifyFast: MonoBehaviour {
 	public GameObject player;
 	public GameObject player2;
 
+	public GameObject pickup;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,11 +23,11 @@ public class SpeedModifyFast: MonoBehaviour {
 
 		if (other.tag == "Player") {
 			player.GetComponent<Player>().MovementFast ();
-			Destroy (this.gameObject.transform.parent.gameObject);
+			Destroy (pickup.gameObject.transform.gameObject);
 		}
 		if (other.tag == "Player2") {
 			player2.GetComponent<Player> ().MovementFast ();
-			Destroy (this.gameObject.transform.parent.gameObject);
+			Destroy (pickup.gameObject.transform.gameObject);
 		}
 
 	}

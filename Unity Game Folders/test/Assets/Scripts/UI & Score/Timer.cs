@@ -8,14 +8,27 @@ public class Timer : MonoBehaviour {
 	public float roundTimer = 90;
 	public Text timerText;
 
-	// Use this for initialization
+
 	void Start () {
 		timerText = GetComponent<Text> ();
+
 	}
-	
-	// Update is called once per frame
+
+
 	void Update () {
+
+		if (roundTimer <= 0) {
+			Time.timeScale = 0;
+			GameOver ();
+		}
+			
 		roundTimer -= Time.deltaTime;
 		timerText.text = roundTimer.ToString("f0");
+
+	}
+
+
+	void GameOver (){
+		
 	}
 }
