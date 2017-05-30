@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour {
 
+//An integer declaring the damage amount
 	public int damage = 20;
 
-	// Use this for initialization
+//----------------------------------------------------------------------------------------------
+//			 Start()
+//Runs when the Scene loads
+//
+//Param
+//			None
+//Return
+//			Void
+//----------------------------------------------------------------------------------------------
 	void Start () {
 		Destroy (this.gameObject, 3f);
 	}
+//----------------------------------------------------------------------------------------------
+//			 OnTriggerEnter()
+//Trigger Detection, detects when the gameobject enters either player's trigger box
+//
+//Param
+//			Collider other - The colliders of any objects that this object passes into
+//Return
+//			Void
+//----------------------------------------------------------------------------------------------
 
-	//When the ball hits something this function will activate
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			other.GetComponent<Player> ().TakeDamage (damage);

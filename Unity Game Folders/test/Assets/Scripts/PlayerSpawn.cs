@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour {
 
+
+	//A Game Object that sets the location of Player 1's Spawn
 	public Transform player1Spawn;
+	//A Game Object that sets the location of Player 2's Spawn
 	public Transform player2Spawn;
+
+	//A GameObject that sets the location of Player 1
 	public Transform player1;
+	//A GameObject that sets the location of Player 2
 	public Transform player2;
 
-	// Use this for initialization
+	//----------------------------------------------------------------------------------------------
+	//			Start()
+	//Runs during initialisation
+	//Param
+	//		 None
+	//Return
+	//		 Void 
+	//----------------------------------------------------------------------------------------------
 	void Start () {
 
 		player1.transform.position = player1Spawn.transform.position;
@@ -17,10 +30,4 @@ public class PlayerSpawn : MonoBehaviour {
 
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 }

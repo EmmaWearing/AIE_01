@@ -4,21 +4,47 @@ using UnityEngine;
 
 public class SpeedModifyFast: MonoBehaviour {
 
+
+//A Game Object for Player 1
 	public GameObject player;
+//A Game Object for Player 2
 	public GameObject player2;
 
+//A Game Object for the Speed Pick Up
 	public GameObject pickup;
 
-	// Use this for initialization
+//----------------------------------------------------------------------------------------------
+//			Start()
+//Runs during initialisation
+//Param
+//		 None
+//Return
+//		 Void 
+//----------------------------------------------------------------------------------------------
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
 	}
 
+//----------------------------------------------------------------------------------------------
+//			Update()
+//Runs every frame
+//Param
+//		 None
+//Return
+//		 Void 
+//----------------------------------------------------------------------------------------------
+	void Update () {
+
+	}
+//----------------------------------------------------------------------------------------------
+//			OnTriggerEnter()
+//Checks anything entering the trigger to see if it is either player and then grabs the Player 
+//object specified above to access the MovementFast function and initiate the Speed increase
+//Param
+//		 None
+//Return
+//		 Void 
+//----------------------------------------------------------------------------------------------
 	void OnTriggerEnter(Collider other) {
 
 		if (other.tag == "Player") {
