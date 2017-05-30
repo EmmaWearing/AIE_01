@@ -17,6 +17,8 @@ public class ScoreZone : MonoBehaviour {
 	public GameObject p2Lose;
 	public GameObject p2Win;
 
+	public GameObject capturePoint;
+
 	public bool P1 = false;
 	public bool P2 = false;
 
@@ -37,8 +39,10 @@ public class ScoreZone : MonoBehaviour {
 		if (other.tag == "Player") {
 //			Debug.Log ("p1");
 			P1 = true;
+			capturePoint.SetActive (false);
 		}else if (other.tag == "Player2") {
 			P2 = true;
+			capturePoint.SetActive (false);
 //			Debug.Log ("p2");
 		}
 	}
