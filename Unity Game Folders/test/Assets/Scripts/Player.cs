@@ -8,13 +8,14 @@ public class Player : MonoBehaviour {
 //Rigidbody
 	Rigidbody rb;
 //Speed
-	public float movementSpeed = 20f;
+	public float movementSpeed = 100f;
 	public float rotateSpeed = 1;
 	public float inAirSpeed;
 	public float increasedSpeed;
+	public bool speedPickUp;
 //KnockBack
-	public float knockBackDistance;
-	public float knockBackSpeed;
+	public float strength;
+	public Transform direction = null;
 //Player Spawn
 	public Transform playerSpawn;
 	public Transform player;
@@ -22,9 +23,11 @@ public class Player : MonoBehaviour {
 	public XboxController controller;
 //Jump
 	public float jumpHeight;
+	public float jumpSpeed;
 	public bool canJump;
 	public bool isGrounded;
 	public bool isFalling;
+	public int dragInt;
 //Fish Setup
 	public GameObject fishPrefab;
 	public float fishSpeed = 100;
@@ -41,6 +44,7 @@ public class Player : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		canJump = true;
 		isGrounded = true;
+		movementSpeed = 100f;
 	}
 
 
@@ -92,6 +96,7 @@ public class Player : MonoBehaviour {
 // Jump
 		if (canJump == true && isGrounded == true && XboxCtrlrInput.XCI.GetButton (XboxCtrlrInput.XboxButton.A, controller)) {
 			rb.AddForce (0, jumpHeight, 0);
+			rb.drag = 1 * dragInt;
 //			rb.AddForce = jump;
 
 //			Debug.Log ("I'm jumping...");
@@ -100,11 +105,23 @@ public class Player : MonoBehaviour {
 			canJump = false;
 			isFalling = true;
 		}
+		if (isGrounded == false) {
+			rb.AddForce (Vector3.up * -jumpSpeed * Time.deltaTime);
+		}
+
 	}
 
 //Movement Speed
 	public void MovementFast() {
 		movementSpeed = increasedSpeed;
+		speedPickUp = true;
+		Invoke ("ResetMovementSpeed", 2);
+	}
+
+	void ResetMovementSpeed () {
+		movementSpeed = 100f;
+		speedPickUp = false;
+		Debug.Log (movementSpeed);
 	}
 
 //Checking for Floor to Jump on
@@ -128,13 +145,12 @@ public class Player : MonoBehaviour {
 //Collision with the other player
 	void OnCollisionEnter(Collision other) {
 		if (other.collider.CompareTag("Player")) {
-			rb.AddForce (0f, jumpHeight * knockBackSpeed * 0.05f, -knockBackDistance * knockBackSpeed);
+			rb.AddForce (strength, 5, strength);
 		}
 		if (other.collider.CompareTag("Player2")) {
-			rb.AddForce (0f, jumpHeight * knockBackSpeed * 0.05f, -knockBackDistance * knockBackSpeed);
+			rb.AddForce (strength, 5, strength);
 		}
-	}
-
+}
 
 //Damage
 	public void TakeDamage (int damage) {
@@ -144,10 +160,10 @@ public class Player : MonoBehaviour {
 
 //Respawn
 	void Respawn() {
-		Debug.Log ("..........");
+//		Debug.Log ("..........");
 		health = 100;
 		player.transform.position = playerSpawn.transform.position;
-		movementSpeed = movementSpeed;
+		ResetMovementSpeed ();
 	}
 
 
