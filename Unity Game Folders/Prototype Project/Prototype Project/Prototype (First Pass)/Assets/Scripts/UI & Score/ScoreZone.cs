@@ -144,7 +144,7 @@ public class ScoreZone : MonoBehaviour {
 			p1Win.SetActive (true);
 			p2Lose.SetActive (true);
 			Invoke ("PauseGame", 3f);
-//			GameOver ();
+			Invoke ("GameOver", 3f);
 		}
 
 		//Check the score, if over whatever load gameover scene
@@ -156,7 +156,7 @@ public class ScoreZone : MonoBehaviour {
 			p2Win.SetActive (true);
 			p1Lose.SetActive (true);
 			Invoke ("PauseGame", 3f);
-//			GameOver ();
+			Invoke ("GameOver", 3f);
 		}
 
 	}

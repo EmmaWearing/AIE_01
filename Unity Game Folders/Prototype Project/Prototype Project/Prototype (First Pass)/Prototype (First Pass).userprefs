@@ -2,9 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI &amp; Score\ScoreZone.cs">
     <Files>
-      <File FileName="Assets\Scripts\StartMenu.cs" Line="32" Column="3" />
-      <File FileName="Assets\Scripts\GameOverMenu.cs" Line="13" Column="44" />
-      <File FileName="Assets\Scripts\UI &amp; Score\ScoreZone.cs" Line="147" Column="18" />
+      <File FileName="Assets\Scripts\UI &amp; Score\ScoreZone.cs" Line="147" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
