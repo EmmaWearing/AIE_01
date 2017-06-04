@@ -124,3 +124,33 @@ L:\Prototyping Project\trunk\Prototype Project\Prototype (First Pass)\Temp\bin\D
 L:\Prototyping Project\trunk\Prototype Project\Prototype (First Pass)\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 L:\Prototyping Project\trunk\Prototype Project\Prototype (First Pass)\obj\Debug\Assembly-CSharp.dll
 L:\Prototyping Project\trunk\Prototype Project\Prototype (First Pass)\obj\Debug\Assembly-CSharp.pdb
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEditor.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.Analytics.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.HoloLens.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.Networking.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.VR.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\XInputDotNetPure.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Unity.SerializationLogic.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Unity.UNetWeaver.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Unity.CecilTools.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEditor.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.UI.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.Analytics.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.HoloLens.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\Temp\bin\Debug\UnityEngine.VR.xml
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\obj\Debug\Assembly-CSharp.dll
+C:\Users\clowd\Desktop\AIE_Dip\AIE_01.git\trunk\Unity Game Folders\Prototype Project\Prototype Project\Prototype (First Pass)\obj\Debug\Assembly-CSharp.pdb

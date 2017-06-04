@@ -57,18 +57,18 @@
      <Compile Include="Assets\3rd Party\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
      <Compile Include="Assets\3rd Party\XInputDotNet\Examples\XInputTestCS.cs" />
      <Compile Include="Assets\Scripts\Fish.cs" />
-     <Compile Include="Assets\Scripts\GameOverMenu.cs" />
+     <Compile Include="Assets\Scripts\Menus\GameOverMenu.cs" />
+     <Compile Include="Assets\Scripts\Menus\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerSpawn.cs" />
-     <Compile Include="Assets\Scripts\SpeedModifyFast.cs" />
-     <Compile Include="Assets\Scripts\StartMenu.cs" />
+     <Compile Include="Assets\Scripts\Speed PickUps\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Speed PickUps\SpeedModifyFast.cs" />
      <Compile Include="Assets\Scripts\TeleporterPad.cs" />
      <Compile Include="Assets\Scripts\UI &amp; Score\Player1Score.cs" />
      <Compile Include="Assets\Scripts\UI &amp; Score\Player2Score.cs" />
      <Compile Include="Assets\Scripts\UI &amp; Score\ScoreZone.cs" />
      <Compile Include="Assets\Scripts\UI &amp; Score\Timer.cs" />
      <None Include="Assets\3rd Party\XInputDotNet\MITLicense.txt" />
-     <None Include="Assets\Textures\delete me.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -88,7 +88,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/clowd/Downloads/Prototype Project/Prototype Project/Prototype (First Pass)/Assets/3rd Party/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>C:/Users/clowd/Desktop/AIE_Dip/AIE_01.git/trunk/Unity Game Folders/Prototype Project/Prototype Project/Prototype (First Pass)/Assets/3rd Party/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
