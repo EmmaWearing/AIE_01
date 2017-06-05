@@ -46,6 +46,7 @@ public class Player : MonoBehaviour {
 //A Bool to determine if the player is falling
 	public bool isFalling;
 
+
 //Setting the drag amount
 	public int dragInt;
 
@@ -94,7 +95,7 @@ public class Player : MonoBehaviour {
 //Return
 //			Void
 //----------------------------------------------------------------------------------------------
-	void Update () {
+	void FixedUpdate () {
 		//Move
 		MovePlayer ();
 		//Health
@@ -110,6 +111,12 @@ public class Player : MonoBehaviour {
 			GO.GetComponent<Rigidbody> ().AddForce (fishGun.transform.forward * fishSpeed, ForceMode.Impulse);
 			canFire = false;
 			Invoke ("ResetShooting", shotSpeed);
+		}
+
+		if (isGrounded == true) {
+			isFalling = false;
+			canJump = true;
+			movementSpeed = 50;
 		}
 
 	}
@@ -143,12 +150,16 @@ public class Player : MonoBehaviour {
 		//float moveRight = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
 
 
-		Vector3 moveForwardT = transform.forward * XboxCtrlrInput.XCI.GetAxis (XboxAxis.LeftStickY, controller);
-		Vector3 moveRightT = transform.right * XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
-		Vector3 movement = moveRightT + moveForwardT;
+
+
+		float moveForwardT = XboxCtrlrInput.XCI.GetAxis (XboxAxis.LeftStickY, controller);
+		float moveRightT = XboxCtrlrInput.XCI.GetAxis(XboxAxis.LeftStickX, controller);
+//		Vector3 movement = moveRightT + moveForwardT;
 
 		//Vector3 movement = new Vector3 (moveRight, 0, moveForward);
-		rb.AddForce (movement * movementSpeed);
+//		rb.AddForce (movement * movementSpeed);
+
+		transform.Translate (moveRightT * movementSpeed * Time.deltaTime, 0, moveForwardT * movementSpeed * Time.deltaTime);
 
 		//Rotate
 		float rotatePlayer = XboxCtrlrInput.XCI.GetAxis(XboxAxis.RightStickX, controller);
@@ -158,17 +169,18 @@ public class Player : MonoBehaviour {
 
 		// Jump
 		if (canJump == true && isGrounded == true && XboxCtrlrInput.XCI.GetButton (XboxCtrlrInput.XboxButton.A, controller)) {
-			rb.AddForce (0, jumpHeight, 0);
-			rb.drag = 1 * dragInt;
-			//			rb.AddForce = jump;
+			
+//			transform.Translate (0, jumpHeight * jumpSpeed * Time.deltaTime, 0);
+			rb.AddForce (0, jumpHeight * jumpSpeed * Time.deltaTime, 0);
 
-			//			Debug.Log ("I'm jumping...");
 			movementSpeed = inAirSpeed;
 			isGrounded = false;
 			canJump = false;
 			isFalling = true;
-		}
+		} 
 		if (isGrounded == false) {
+//			rb.drag = 1 * dragInt;
+//			transform.Translate (0, jumpHeight * jumpSpeed * Time.deltaTime, 0);
 			rb.AddForce (Vector3.up * -jumpSpeed * Time.deltaTime);
 		}
 
@@ -201,7 +213,7 @@ public class Player : MonoBehaviour {
 //		 Void 
 //----------------------------------------------------------------------------------------------
 	void ResetMovementSpeed () {
-		movementSpeed = 100f;
+		movementSpeed = 50f;
 		speedPickUp = false;
 		Debug.Log (movementSpeed);
 	}

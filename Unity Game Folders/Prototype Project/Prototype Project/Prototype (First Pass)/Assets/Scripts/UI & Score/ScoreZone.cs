@@ -22,6 +22,8 @@ public class ScoreZone : MonoBehaviour {
 	public GameObject p2Lose;
 //A Game Object for Player 2's winning text
 	public GameObject p2Win;
+//A Game Object for the Game Over UI
+	public GameObject gameOver;
 //A Game Object for the Capture Point
 	public GameObject capturePoint;
 //A Bool to determine when Player 1 is not in the capture zone
@@ -49,6 +51,7 @@ public class ScoreZone : MonoBehaviour {
 
 		Player1Score.playerOneScore = 0;
 		Player2Score.playerTwoScore = 0;
+		gameOver.SetActive (false);
 
 	}
 
@@ -62,9 +65,12 @@ public class ScoreZone : MonoBehaviour {
 //			Void
 //----------------------------------------------------------------------------------------------
 	public void GameOver () {
-
-		SceneManager.LoadScene ("Game Over Menu", LoadSceneMode.Additive);
-		return;
+		
+		p2Win.SetActive (false);
+		p1Lose.SetActive (false);
+		p1Win.SetActive (false);
+		p2Lose.SetActive (false);
+		gameOver.SetActive (true);
 	}
 
 
