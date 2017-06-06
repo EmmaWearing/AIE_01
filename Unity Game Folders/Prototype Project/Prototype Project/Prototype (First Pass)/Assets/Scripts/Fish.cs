@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour {
 
+
 //An integer declaring the damage amount
-	public int damage = 20;
+	public int damage = 10;
 
 //----------------------------------------------------------------------------------------------
 //			 Start()
@@ -31,11 +32,13 @@ public class Fish : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
+//			Debug.Log ("Something fishy");
 			other.GetComponent<Player> ().TakeDamage (damage);
 		}
 
 		if (other.tag == "Player2") {
-			other.GetComponent<Player> ().TakeDamage (damage);
+//			Debug.Log ("Something fishy");
+			other.GetComponent<Player> ().TakeDamage(damage);
 		}
 
 		if (other.tag == "Obstacle") {

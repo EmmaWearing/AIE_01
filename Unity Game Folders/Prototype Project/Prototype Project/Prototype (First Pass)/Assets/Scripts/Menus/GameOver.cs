@@ -10,10 +10,12 @@ public class GameOver : MonoBehaviour {
 	public GameObject gameController;
 
 	public void Retry (){
+		Debug.Log ("Retry");
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
 
 	public void Quit (){
+		Debug.Log ("Quit");
 		Application.Quit ();
 	}
 }

@@ -28,6 +28,9 @@ public class PlayerSpawn : MonoBehaviour {
 		player1.transform.position = player1Spawn.transform.position;
 		player2.transform.position = player2Spawn.transform.position;
 
+		player1.transform.rotation = player1Spawn.transform.rotation;
+		player2.transform.rotation = player2Spawn.transform.rotation;
+
 
 	}
 }

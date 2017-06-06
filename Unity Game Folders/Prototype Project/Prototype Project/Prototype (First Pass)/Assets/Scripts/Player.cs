@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour {
 	//Health
 //The amount of the health the player has
 	public int health = 100;
+	public Slider healthBarSlider;
 
 //----------------------------------------------------------------------------------------------
 //			 Start()
@@ -84,6 +86,8 @@ public class Player : MonoBehaviour {
 		canJump = true;
 		isGrounded = true;
 		movementSpeed = 100f;
+		speedPickUp = false;
+		healthBarSlider.value = 100f;
 	}
 
 //----------------------------------------------------------------------------------------------
@@ -102,7 +106,7 @@ public class Player : MonoBehaviour {
 		//if the player health drops equal to or below 0 then:
 		//Get the spawn object that has the spawn script, grab the spawn script off it and respawn the player at their spawn position.
 		if (health <= 0) {
-			Debug.Log ("respawn");
+//			Debug.Log ("respawn");
 			Respawn ();
 		}
 		//Shoot
@@ -117,6 +121,12 @@ public class Player : MonoBehaviour {
 			isFalling = false;
 			canJump = true;
 			movementSpeed = 50;
+		}
+
+		if (speedPickUp == true) {
+			movementSpeed = 100;
+		} else if (speedPickUp == false) {
+			movementSpeed = 30;
 		}
 
 	}
@@ -198,7 +208,8 @@ public class Player : MonoBehaviour {
 //		 Void 
 //----------------------------------------------------------------------------------------------
 	public void MovementFast() {
-		movementSpeed = increasedSpeed;
+		
+		Debug.Log (movementSpeed);
 		speedPickUp = true;
 		Invoke ("ResetMovementSpeed", 2);
 	}
@@ -213,7 +224,7 @@ public class Player : MonoBehaviour {
 //		 Void 
 //----------------------------------------------------------------------------------------------
 	void ResetMovementSpeed () {
-		movementSpeed = 50f;
+		movementSpeed = 30f;
 		speedPickUp = false;
 		Debug.Log (movementSpeed);
 	}
@@ -274,6 +285,7 @@ public class Player : MonoBehaviour {
 	public void TakeDamage (int damage) {
 		//		Debug.Log ("hit");
 		health -= damage;
+		healthBarSlider.value -= damage;
 	}
 
 	//Respawn
@@ -285,10 +297,12 @@ public class Player : MonoBehaviour {
 //Return
 //		 Void 
 //----------------------------------------------------------------------------------------------
-	void Respawn() {
+	public void Respawn() {
 		//		Debug.Log ("..........");
 		health = 100;
+		healthBarSlider.value = 100;
 		player.transform.position = playerSpawn.transform.position;
+		player.transform.rotation = playerSpawn.transform.rotation;
 		ResetMovementSpeed ();
 	}
 

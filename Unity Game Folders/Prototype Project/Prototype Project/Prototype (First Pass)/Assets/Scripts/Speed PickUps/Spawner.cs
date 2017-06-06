@@ -38,7 +38,12 @@ public class Spawner : MonoBehaviour {
 		if (other.tag == "Player") {
 			alreadySpawned = false;
 		}
+		
+		if (other.tag == "Player2") {
+			alreadySpawned = false;
+		}
 	}
+	
 
 	void FixedUpdate () {
 

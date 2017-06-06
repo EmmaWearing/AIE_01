@@ -13,6 +13,7 @@ public class SpeedModifyFast: MonoBehaviour {
 //A Game Object for the Speed Pick Up
 	public GameObject pickup;
 
+
 //----------------------------------------------------------------------------------------------
 //			Start()
 //Runs during initialisation
@@ -33,7 +34,7 @@ public class SpeedModifyFast: MonoBehaviour {
 //Return
 //		 Void 
 //----------------------------------------------------------------------------------------------
-	void Update () {
+	void FixedUpdate () {
 
 	}
 //----------------------------------------------------------------------------------------------
@@ -48,11 +49,11 @@ public class SpeedModifyFast: MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if (other.tag == "Player") {
-			player.GetComponent<Player>().MovementFast ();
-			Destroy (pickup.gameObject.transform.gameObject);
+			other.GetComponent<Player>().MovementFast ();
+			Destroy (this.gameObject);
 		}
 		if (other.tag == "Player2") {
-			player2.GetComponent<Player> ().MovementFast ();
+			other.GetComponent<Player> ().MovementFast ();
 			Destroy (pickup.gameObject.transform.gameObject);
 		}
 

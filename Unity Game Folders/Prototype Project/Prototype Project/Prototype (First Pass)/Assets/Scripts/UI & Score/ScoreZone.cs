@@ -10,6 +10,7 @@ public class ScoreZone : MonoBehaviour {
 	private int currentScorePlayer1;
 //An integer for Player 2's current score
 	private int currentScorePlayer2;
+
 //A GameObject that is Player 1's score
 	public GameObject p1Score;
 //A Game Object that is Player 2's score
@@ -22,20 +23,25 @@ public class ScoreZone : MonoBehaviour {
 	public GameObject p2Lose;
 //A Game Object for Player 2's winning text
 	public GameObject p2Win;
+
 //A Game Object for the Game Over UI
 	public GameObject gameOver;
 //A Game Object for the Capture Point
 	public GameObject capturePoint;
+
 //A Bool to determine when Player 1 is not in the capture zone
 	public bool P1 = false;
 //A Bool to determine when Player 2 is not in the capture zone
 	public bool P2 = false;
+
 //How quickly the score goes up
 	private float scoreSpeed = 1;
 //A Bool to determine whether the players can score 
 	public bool canScore;
 //What the score limit is
 	public int scoreLimit;
+
+
 
 //----------------------------------------------------------------------------------------------
 //			 Start()
@@ -47,11 +53,12 @@ public class ScoreZone : MonoBehaviour {
 //			Void
 //----------------------------------------------------------------------------------------------
 	void Start (){
+		
 		canScore = true;
 
 		Player1Score.playerOneScore = 0;
 		Player2Score.playerTwoScore = 0;
-		gameOver.SetActive (false);
+
 
 	}
 
@@ -70,9 +77,11 @@ public class ScoreZone : MonoBehaviour {
 		p1Lose.SetActive (false);
 		p1Win.SetActive (false);
 		p2Lose.SetActive (false);
-		gameOver.SetActive (true);
-	}
 
+		Debug.Log ("Retry");
+		SceneManager.LoadScene ("Start Menu");
+
+	}
 
 //----------------------------------------------------------------------------------------------
 //			 OnTriggerEnter()
@@ -149,7 +158,7 @@ public class ScoreZone : MonoBehaviour {
 			p1Lose.SetActive (false);
 			p1Win.SetActive (true);
 			p2Lose.SetActive (true);
-			Invoke ("PauseGame", 3f);
+//			Invoke ("PauseGame", 3f);
 			Invoke ("GameOver", 3f);
 		}
 
@@ -161,7 +170,7 @@ public class ScoreZone : MonoBehaviour {
 			p2Lose.SetActive (false);
 			p2Win.SetActive (true);
 			p1Lose.SetActive (true);
-			Invoke ("PauseGame", 3f);
+//			Invoke ("PauseGame", 3f);
 			Invoke ("GameOver", 3f);
 		}
 
@@ -175,11 +184,11 @@ public class ScoreZone : MonoBehaviour {
 //Return
 //			Void
 //----------------------------------------------------------------------------------------------
-	void PauseGame (){
-		Time.timeScale = 0;
-
-	}
-
+//	void PauseGame (){
+//		Time.timeScale = 0;
+//
+//	}
+//
 	//----------------------------------------------------------------------------------------------
 	//			 Start()
 	//Runs during initialisation
