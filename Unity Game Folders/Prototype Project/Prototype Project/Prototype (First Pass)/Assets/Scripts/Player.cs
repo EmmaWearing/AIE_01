@@ -91,8 +91,8 @@ public class Player : MonoBehaviour {
 	}
 
 //----------------------------------------------------------------------------------------------
-//			Update ()
-//Runs every frame
+//			FixedUpdate ()
+//Runs every fixed time to be a reliable alternative to Update
 //
 //Param
 //			None

@@ -182,8 +182,8 @@ public class ScoreZone : MonoBehaviour {
 
 	}
 //----------------------------------------------------------------------------------------------
-//			ResetScoring ()
-//Resets the player ability to score in the score zone back to true
+//			PauseGame ()
+//Pauses the Game using time
 //
 //Param
 //			None
@@ -195,15 +195,15 @@ public class ScoreZone : MonoBehaviour {
 //
 //	}
 //
-	//----------------------------------------------------------------------------------------------
-	//			 Start()
-	//Runs during initialisation
-	//
-	//Param
-	//			None
-	//Return
-	//			Void
-	//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+//			 ResetScoring()
+//Resets, allowing the players to score again
+//
+//Param
+//			None
+//Return
+//			Void
+//----------------------------------------------------------------------------------------------
 	void ResetScoring () {
 		canScore = true;
 	}

@@ -59,7 +59,6 @@
      <Compile Include="Assets\Scripts\Fish.cs" />
      <Compile Include="Assets\Scripts\JumpPad.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
-     <Compile Include="Assets\Scripts\Menus\GameOver.cs" />
      <Compile Include="Assets\Scripts\Menus\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Menus\test.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
@@ -71,6 +70,7 @@
      <Compile Include="Assets\Scripts\UI &amp; Score\Player2Score.cs" />
      <Compile Include="Assets\Scripts\UI &amp; Score\ScoreZone.cs" />
      <Compile Include="Assets\Scripts\UI &amp; Score\Timer.cs" />
+     <Compile Include="Assets\Scripts\_Old&amp;Unused\GameOver.cs" />
      <None Include="Assets\3rd Party\XInputDotNet\MITLicense.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
