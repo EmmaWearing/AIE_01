@@ -23,6 +23,10 @@ public class ScoreZone : MonoBehaviour {
 	public GameObject p2Lose;
 //A Game Object for Player 2's winning text
 	public GameObject p2Win;
+//A Game Object for P1's Health Bar
+	public GameObject p1Health;
+//A Game Object for P2's Health Bar
+	public GameObject p2Health;
 
 //A Game Object for the Game Over UI
 	public GameObject gameOver;
@@ -77,6 +81,8 @@ public class ScoreZone : MonoBehaviour {
 		p1Lose.SetActive (false);
 		p1Win.SetActive (false);
 		p2Lose.SetActive (false);
+		p2Health.SetActive (false);
+		p1Health.SetActive (false);
 
 		Debug.Log ("Retry");
 		SceneManager.LoadScene ("Start Menu");
