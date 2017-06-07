@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
 	//The number the timer will count down from
-	public float roundTimer = 90;
+	public float roundTimer = 60;
 	//Sets a text object to be written in the code
 	public Text timerText;
+
+	public int secondTimer = 10;
+
+	public int thirdTimer;
 
 	//----------------------------------------------------------------------------------------------
 	//			 Start()
@@ -21,7 +25,6 @@ public class Timer : MonoBehaviour {
 	//----------------------------------------------------------------------------------------------
 	void Start () {
 		timerText = GetComponent<Text> ();
-
 	}
 
 	//----------------------------------------------------------------------------------------------
@@ -40,8 +43,15 @@ public class Timer : MonoBehaviour {
 			Time.timeScale = 0;
 		}
 
+
+
 		roundTimer -= Time.deltaTime;
 		timerText.text = roundTimer.ToString("f0");
+		timerText.color = Color.white;
+
+		if (roundTimer <= secondTimer){
+			timerText.color = Color.red;
+		}
 
 	}
 }

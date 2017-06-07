@@ -15,6 +15,8 @@ public class ScoreZone : MonoBehaviour {
 	public GameObject p1Score;
 //A Game Object that is Player 2's score
 	public GameObject p2Score;
+
+
 //A Game Object for Player 1's losing text
 	public GameObject p1Lose;
 //A Game Object for Player 1's winning text
@@ -45,8 +47,6 @@ public class ScoreZone : MonoBehaviour {
 //What the score limit is
 	public int scoreLimit;
 
-
-
 //----------------------------------------------------------------------------------------------
 //			 Start()
 //Runs during initialisation
@@ -65,7 +65,6 @@ public class ScoreZone : MonoBehaviour {
 
 
 	}
-
 //----------------------------------------------------------------------------------------------
 //			GameOver ()
 //When called the Game Over Menu Scene will load over the Main Scene
@@ -88,7 +87,6 @@ public class ScoreZone : MonoBehaviour {
 		SceneManager.LoadScene ("Start Menu");
 
 	}
-
 //----------------------------------------------------------------------------------------------
 //			 OnTriggerEnter()
 //Trigger Detection, detects when each player enters the Trigger Box
@@ -110,7 +108,6 @@ public class ScoreZone : MonoBehaviour {
 			//			Debug.Log ("p2");
 		}
 	}
-
 //----------------------------------------------------------------------------------------------
 //			 OnTriggerExit()
 //Trigger Detection, detects when each player exits the Trigger Box
@@ -128,7 +125,6 @@ public class ScoreZone : MonoBehaviour {
 			P2 = false;
 		}
 	}
-
 //----------------------------------------------------------------------------------------------
 //			Update ()
 //Runs every frame
@@ -155,6 +151,7 @@ public class ScoreZone : MonoBehaviour {
 			Player2Score.playerTwoScore += 1;
 			Invoke ("ResetScoring", scoreSpeed);
 		}
+			
 
 		//Check the score, if over whatever load gameover scene
 		if (Player1Score.playerOneScore > scoreLimit) {
@@ -164,7 +161,7 @@ public class ScoreZone : MonoBehaviour {
 			p1Lose.SetActive (false);
 			p1Win.SetActive (true);
 			p2Lose.SetActive (true);
-//			Invoke ("PauseGame", 3f);
+
 			Invoke ("GameOver", 3f);
 		}
 
@@ -176,25 +173,11 @@ public class ScoreZone : MonoBehaviour {
 			p2Lose.SetActive (false);
 			p2Win.SetActive (true);
 			p1Lose.SetActive (true);
-//			Invoke ("PauseGame", 3f);
+
 			Invoke ("GameOver", 3f);
 		}
 
 	}
-//----------------------------------------------------------------------------------------------
-//			PauseGame ()
-//Pauses the Game using time
-//
-//Param
-//			None
-//Return
-//			Void
-//----------------------------------------------------------------------------------------------
-//	void PauseGame (){
-//		Time.timeScale = 0;
-//
-//	}
-//
 //----------------------------------------------------------------------------------------------
 //			 ResetScoring()
 //Resets, allowing the players to score again
@@ -209,37 +192,3 @@ public class ScoreZone : MonoBehaviour {
 	}
 
 }
-
-
-//	public void OnTriggerStay (Collider other) {
-//
-//		int player1Increase = 0;
-//		int player2Increase = 0;
-//
-//		if ((other.tag == "Player") && canScore == true) {
-//			player1Increase = 1;
-////			Debug.Log ("P1");
-//			P1 = true;
-//			canScore = false;
-//			Invoke ("ResetScoring", scoreSpeed);
-//		} 
-//	
-//
-//		if ((other.tag == "Player2") && canScore == true) {
-//			player2Increase = 1;
-////			Debug.Log ("P2");
-//			P2 = true;
-//			canScore = false;
-//			Invoke ("ResetScoring", scoreSpeed);
-//		} 
-//
-////If both players are in the Score Zone then no one scores any points...
-//		if (P1 == true && P2 == true) {
-//			player1Increase = 0;
-//			player2Increase = 0;
-//		}
-//
-//		Player1Score.playerOneScore += player1Increase;
-//		Player2Score.playerTwoScore += player2Increase;
-//	}
-//
